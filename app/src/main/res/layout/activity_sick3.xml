@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditText
+        android:id="@+id/Q43_A2"
+        android:layout_width="133dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="개비"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/Q43_A1"
+        app:layout_constraintTop_toBottomOf="@+id/Q43" />
+
+    <EditText
+        android:id="@+id/Q43_A1"
+        android:layout_width="127dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="년"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q43" />
+
+    <TextView
+        android:id="@+id/Q4"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="4. 아래 문항을 읽고 자신의 현재 상태에 해당되는 내용에 표시해 주십시오."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/Q4_rg"
+        android:layout_width="139dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q41">
+
+        <RadioButton
+            android:id="@+id/Q41_A1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아니오" />
+
+        <RadioButton
+            android:id="@+id/Q41_A2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예, 지금은 끊었음" />
+
+        <RadioButton
+            android:id="@+id/Q41_A3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="예, 현재도 흡연 중" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Q41"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="4-1. 지금까지 평생 총 5갑(100개비)이상의 담배를 피운 적이 있습니까 "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q4" />
+
+    <TextView
+        android:id="@+id/Q42"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="4-2. 과거에 흡연을 하였으나 현재는 끊으셨다면 금연 전까지 담배를 피우신 기간과 하루 흡연량은?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q4_rg" />
+
+    <TextView
+        android:id="@+id/Q43"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="4-3.현재도 흡연을 하신다면 현재 흡연기간과 하루 흡연량은?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q42_A2" />
+
+    <EditText
+        android:id="@+id/Q42_A1"
+        android:layout_width="127dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="년"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q42" />
+
+    <EditText
+        android:id="@+id/Q42_A2"
+        android:layout_width="133dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="개비"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/Q42_A1"
+        app:layout_constraintTop_toBottomOf="@+id/Q42" />
+
+    <Button
+        android:id="@+id/btn_next2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="다음"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q43_A2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="(☞ 4-2번 문항으로 가세요)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:text="(☞ 5번 문항으로 가세요)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q41" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="(☞ 4-3번 문항으로 가세요) "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="뒤로"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q43_A1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

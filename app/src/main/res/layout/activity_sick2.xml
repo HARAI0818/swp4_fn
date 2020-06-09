@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <TextView
+        android:id="@+id/Q3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="3.B형간염 바이러스 보유자입니까?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q2_A4" />
+
+    <CheckBox
+        android:id="@+id/Q2_A2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="심장병"
+        app:layout_constraintStart_toEndOf="@+id/Q2_A1"
+        app:layout_constraintTop_toBottomOf="@+id/Q2" />
+
+    <CheckBox
+        android:id="@+id/Q2_A1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="뇌졸중"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q2" />
+
+    <CheckBox
+        android:id="@+id/Q2_A3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:text="고혈압"
+        app:layout_constraintStart_toEndOf="@+id/Q2_A2"
+        app:layout_constraintTop_toBottomOf="@+id/Q2" />
+
+    <CheckBox
+        android:id="@+id/Q2_A4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="당뇨병"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q2_A2" />
+
+    <CheckBox
+        android:id="@+id/Q2_A5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:text="기타(암 포함)"
+        app:layout_constraintStart_toEndOf="@+id/Q2_A4"
+        app:layout_constraintTop_toBottomOf="@+id/Q2_A2" />
+
+    <TextView
+        android:id="@+id/Q1"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="1.다음과 같은 질병으로 진단을 받았거나,현재 약물 치료 중이십니까?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Q1_A1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="뇌졸중"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q1" />
+
+    <CheckBox
+        android:id="@+id/Q1_A3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="고혈압"
+        app:layout_constraintStart_toEndOf="@+id/Q1_A2"
+        app:layout_constraintTop_toBottomOf="@+id/Q1" />
+
+    <CheckBox
+        android:id="@+id/Q1_A2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="심장병"
+        app:layout_constraintStart_toEndOf="@+id/Q1_A1"
+        app:layout_constraintTop_toBottomOf="@+id/Q1" />
+
+    <CheckBox
+        android:id="@+id/Q1_A4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="당뇨병"
+        app:layout_constraintStart_toEndOf="@+id/Q1_A3"
+        app:layout_constraintTop_toBottomOf="@+id/Q1" />
+
+    <CheckBox
+        android:id="@+id/Q1_A5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="이상지질혈증"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q1_A1" />
+
+    <CheckBox
+        android:id="@+id/Q1_A7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="기타(암 포함)"
+        app:layout_constraintStart_toEndOf="@+id/Q1_A6"
+        app:layout_constraintTop_toBottomOf="@+id/Q1_A3" />
+
+    <CheckBox
+        android:id="@+id/Q1_A6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="폐결핵"
+        app:layout_constraintStart_toEndOf="@+id/Q1_A5"
+        app:layout_constraintTop_toBottomOf="@+id/Q1_A2" />
+
+    <TextView
+        android:id="@+id/Q2"
+        android:layout_width="323dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="2.부모, 형제, 자매 중에 다음 질환을 앓았거나해당 질환으로 사망한 경우가 있으십니까?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q1_A6" />
+
+    <RadioGroup
+        android:id="@+id/Q3_rg"
+        android:layout_width="338dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q3">
+
+        <RadioButton
+            android:id="@+id/Q3_A1"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:text="예" />
+
+        <RadioButton
+            android:id="@+id/Q3_A2"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:text="아니요" />
+
+        <RadioButton
+            android:id="@+id/Q3_A3"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="모름" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="다음"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

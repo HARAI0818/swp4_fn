@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">J-Hi</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_기능1">메인홈</string>
+    <string name="menu_기능2">내정보</string>
+    <string name="menu_기능3">자가진단서</string>
+    <string name="menu_기능4">마스크구매일</string>
+    <string name="menu_JHI">J-HI</string>
+    <string name="menu_이메일">이메일</string>
+
+    <string name="menu_로그인">로그아웃</string>
+    <string name="menu_아이디">아이디</string>
+    <string name="menu_회원가입">회원가입</string>
+    <string name="menu_비밀번호">비밀번호</string>
+
+
+    <string name="main_병원검색">병원검색</string>
+    <string name="menu_감염자동선">감염자동선</string>
+    <string name="menu_약품정보">약품정보</string>
+    <string name="menu_유튜브">유튜브</string>
+    <string name="menu_뉴스">뉴스</string>
+    <string name="home_second">Home Second</string>
+</resources>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/ScrollView1"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="1.진단을 받았거나, 현재 약물 치료중인 질병"
+            />
+
+        <TextView
+            android:id="@+id/tv_A1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="2.부모, 형제, 자매 중에 앓았거나 사망한 경우가 있는 질병?"
+            />
+
+        <TextView
+            android:id="@+id/tv_A2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="3.B형간염 바이러스 보유자입니까?"
+            />
+
+        <TextView
+            android:id="@+id/tv_A3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="4-1. 지금까지 평생 총 5갑(100개비)이상의 담배를 피운 적이 있습니까 "
+            />
+
+        <TextView
+            android:id="@+id/tv_A4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="4-2. 과거 혹은 현재까지의 흡현기간과 흡연량은?"
+            />
+
+        <TextView
+            android:id="@+id/tv_A5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_A6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="5-1. 1주일에 평균 며칠이나 술을 마십니까 "
+            />
+
+        <TextView
+            android:id="@+id/tv_A7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="5-2. 술을 마실 때 보통 하루에 얼마나 마십니까?"
+            />
+
+        <TextView
+            android:id="@+id/tv_A8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="6-1. 최근 1주일간, 평소보다 숨이 훨씬 더 차게 만드는 격렬한 활동을, 하루 20분 이상 시행한 날은 며칠이었습니까? "
+            />
+
+        <TextView
+            android:id="@+id/tv_A9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="6-2. 최근 1주일간, 평소보다 숨이 조금 더 차게 만드는 중간정도 활동을, 하루 30분 이상 시행한 날은 며칠이었습니까?"
+            />
+
+        <TextView
+            android:id="@+id/tv_A10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="6-3. 최근 1주일간, 한 번에 적어도 10분 이상씩 걸은 경우를 합하여, 하루 총 30분 이상 걸은 날은 며칠이었습니까? "
+            />
+
+
+        <TextView
+            android:id="@+id/tv_A11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="300dp"
+            android:text="TextView"
+            />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문진표 삭제" />
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
