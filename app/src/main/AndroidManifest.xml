@@ -23,12 +23,12 @@
         <activity android:name=".SickActivity"></activity>
         <activity android:name=".SickshActivity" />
         <activity android:name=".search_medAct" />
+        <activity android:name=".search_mediAct" />
         <activity android:name=".newsAct" />
         <activity android:name=".YoutubeAct" />
         <activity android:name=".coronaAct" />
         <activity android:name=".Youtube_WebviewActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginMainAct" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".LoginInfActivity" />
         <activity android:name=".ReviewshActivity" />
@@ -50,7 +50,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBU3XloHJvjAnFsikaWRS4sGaRX_kKvX88"></meta-data>
-        <activity android:name=".LoadingActivity" />
     </application>
 
 </manifest>

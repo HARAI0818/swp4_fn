@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 
 
-public class search_hAct extends FragmentActivity
+public class search_mediAct extends FragmentActivity
         implements GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
         OnMapReadyCallback  {
@@ -40,29 +40,41 @@ public class search_hAct extends FragmentActivity
     private static final int MY_LOCATION_REQUEST_CODE = 1;
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
     public static Context context_main;
+    ArrayList<MemberDTO> members;
+    private Context mContext;
+    private AlertDialog dialog;
+    private long time = 0;
     public String Review_hos = "";
 
 
     private GoogleMap mgoogleMap;
     private ClusterManager<MyItem> clusterManager;
-    ArrayList<Clinic> clinics;
+    ArrayList<Medi> clinics;
     ArrayList<Location> clinic_address;
     Context context = this;
     final String TAG = "LogMainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_h);
+        setContentView(R.layout.search_medi);
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
 
 
         context_main = this;
 
-        clinics = (ArrayList<Clinic>)getIntent().getSerializableExtra("clinic");
+        clinics = (ArrayList<Medi>)getIntent().getSerializableExtra("clinic");
         clinic_address = (ArrayList<Location>)getIntent().getSerializableExtra("clinic_addr");
-        SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1);
         assert supportMapFragment != null;
         supportMapFragment.getMapAsync(this);
     }
+
+
+
 
 
 
@@ -81,9 +93,9 @@ public class search_hAct extends FragmentActivity
         mgoogleMap.setOnMyLocationButtonClickListener(this);
         mgoogleMap.setOnMyLocationClickListener(this);
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
             googleMap.setMyLocationEnabled(true);
             googleMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -200,7 +212,6 @@ public class search_hAct extends FragmentActivity
                         "이름 : " + clinics.get(marker_ID_number - 1).getName() +
                                 "\n주소 : " + clinics.get(marker_ID_number - 1).getAddress() +
                                 "\n전화번호 : " + clinics.get(marker_ID_number - 1).getPhoneNumber() +
-                                "\n종류 : " + clinics.get(marker_ID_number - 1).getSample() +
                                 "\n※운영시간※ " +
                                 "\n월요일 : " + monday +
                                 "\n화요일 : " + tuesday +
@@ -215,15 +226,6 @@ public class search_hAct extends FragmentActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                builder.setNegativeButton("리뷰보기", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Review_hos = clinics.get(marker_ID_number - 1).getName();
-                        Intent intent = new Intent(search_hAct.this, ReviewshActivity.class);
-                        intent.putExtra("Review_hos", Review_hos);
-                        startActivity(intent);
                     }
                 });
 

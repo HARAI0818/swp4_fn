@@ -118,7 +118,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
                                                 boolean success = jsonResponse.getBoolean("success");
                                                 if(success) {
 
-                                                    Toast.makeText(mContext,"리뷰 삭제가 완료되었습니다.",Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(mContext,"리뷰가 정상적으로 삭제되었습니다.",Toast.LENGTH_SHORT).show();
                                                     memberList.remove(position);
                                                     notifyItemRemoved(position);
                                                     notifyItemRangeChanged(position, memberList.size());

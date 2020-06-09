@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     //뒤로 두번 누를시 앱 종료
     @Override
     public void onBackPressed() {
-        backPressHandler.onBackPressed("뒤로가기 버튼 한번 더 누르면 종료");
+        backPressHandler.onBackPressed("한번 더 누르면 종료됩니다.");
     }
 
     @Override
