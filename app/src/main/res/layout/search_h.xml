@@ -19,6 +19,9 @@
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
         <EditText
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,6 +30,15 @@
             android:text="Name"
             app:layout_constraintTop_toTopOf="@+id/map"
             tools:layout_editor_absoluteX="1000dp" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="100dp"
+            android:text="Button" />
 
     </FrameLayout>
 

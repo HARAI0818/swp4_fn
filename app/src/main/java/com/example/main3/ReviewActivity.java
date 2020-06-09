@@ -59,7 +59,7 @@ public class ReviewActivity extends AppCompatActivity {
 
                 long now = System.currentTimeMillis();
                 Date mDate = new Date(now);
-                SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 
                 RbPreference pref = new RbPreference(mContext);
                 String Review_user = pref.getValue("User_id", "");

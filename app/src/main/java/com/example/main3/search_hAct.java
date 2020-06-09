@@ -9,6 +9,9 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,8 +44,6 @@ public class search_hAct extends FragmentActivity
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
     public static Context context_main;
     public String Review_hos = "";
-
-
     private GoogleMap mgoogleMap;
     private ClusterManager<MyItem> clusterManager;
     ArrayList<Clinic> clinics;
@@ -54,7 +55,19 @@ public class search_hAct extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_h);
 
+        final EditText et_name = (EditText) findViewById(R.id.editText2);
+        Button btn_search = (Button)findViewById(R.id.btn_search);
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                String name = et_name.getText().toString();
+
+                LatLng latLng = new LatLng(35.154101, 128.098149);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                mgoogleMap.animateCamera(cameraUpdate);
+            }
+        });
         context_main = this;
 
         clinics = (ArrayList<Clinic>)getIntent().getSerializableExtra("clinic");
@@ -62,6 +75,10 @@ public class search_hAct extends FragmentActivity
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         assert supportMapFragment != null;
         supportMapFragment.getMapAsync(this);
+
+
+
+
     }
 
 
