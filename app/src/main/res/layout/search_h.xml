@@ -19,15 +19,15 @@
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
         <EditText
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
+            android:hint="병원 "
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintTop_toTopOf="@+id/map"
             tools:layout_editor_absoluteX="1000dp" />
 
@@ -36,9 +36,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="100dp"
-            android:text="Button" />
+            android:layout_marginTop="15dp"
+            android:text="검색" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="180dp"/>
 
     </FrameLayout>
 

@@ -9,6 +9,9 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,34 +43,100 @@ public class search_mediAct extends FragmentActivity
     private static final int MY_LOCATION_REQUEST_CODE = 1;
     private static final int TAG_CODE_PERMISSION_LOCATION = 1;
     public static Context context_main;
-    ArrayList<MemberDTO> members;
-    private Context mContext;
-    private AlertDialog dialog;
-    private long time = 0;
-    public String Review_hos = "";
-
 
     private GoogleMap mgoogleMap;
     private ClusterManager<MyItem> clusterManager;
     ArrayList<Medi> clinics;
+    ArrayList<Medi> Marker;
     ArrayList<Location> clinic_address;
+    ArrayList<Location> Maker_address;
     Context context = this;
     final String TAG = "LogMainActivity";
+    int ch = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_medi);
 
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
+        final EditText et_name = (EditText) findViewById(R.id.et_name);
+        Button btn_search = (Button)findViewById(R.id.btn_search1);
+        Button btn_del = (Button)findViewById(R.id.btn_reset);
+
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = et_name.getText().toString();
+                if (text.equals("")) {
+                    Toast.makeText(getApplicationContext(), "검색어를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    boolean check = false;
+
+                    LatLng latLng1 = null;
+                    for (int i = 0; i < 50; i++) {
+                        if (clinics.get(i).getName().contains(text)) {
+                            if (check == false) {
+                                clusterManager.clearItems();
+                            }
+
+                            MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
+                                    Marker.get(i).getName());
+                            clusterManager.addItem(clinicItem);
+
+                            if (check == false) {
+                                latLng1 = new LatLng(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude());
+                                check = true;
+                            }
+                        }
+                    }
+
+                    if (check) {
+                        if(ch == 0) {
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, (float) 18.5);
+                            mgoogleMap.moveCamera(cameraUpdate);
+                            ch++;
+                        }
+                        else{
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, 18);
+                            mgoogleMap.moveCamera(cameraUpdate);
+                            ch--;
+                        }
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "정보를 찾을 수 없습니다. \n 다시 검색해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+        });
+
+        btn_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clusterManager.clearItems();
+
+                for(int i = 0 ; i < Marker.size(); i++) {
+                    MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
+                            Marker.get(i).getName());
+                    clusterManager.addItem(clinicItem);
+                    LatLng latLng = new LatLng(35.154101, 128.098149);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                    mgoogleMap.moveCamera(cameraUpdate);
+                }
+            }
+        });
+
+
+
+
 
 
         context_main = this;
-
         clinics = (ArrayList<Medi>)getIntent().getSerializableExtra("clinic");
+        Marker = clinics;
         clinic_address = (ArrayList<Location>)getIntent().getSerializableExtra("clinic_addr");
+        Maker_address = clinic_address;
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1);
         assert supportMapFragment != null;
         supportMapFragment.getMapAsync(this);
@@ -116,8 +185,8 @@ public class search_mediAct extends FragmentActivity
                 mgoogleMap.animateCamera(cameraUpdate);
 
                 for(int i = 0 ; i < clinics.size(); i++) {
-                    MyItem clinicItem = new MyItem(clinic_address.get(i).getLatitude(), clinic_address.get(i).getLongitude(),
-                            clinics.get(i).getName());
+                    MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
+                            Marker.get(i).getName());
                     clusterManager.addItem(clinicItem);
                 } // 병원 개수만큼 item 추가
             }
@@ -137,23 +206,23 @@ public class search_mediAct extends FragmentActivity
             @Override
             public void onInfoWindowClick(Marker marker) {
                 String marker_number = null;
-                for (int i = 0; i < clinics.size(); i++) {
-                    if (clinics.get(i).findIndex(marker.getTitle()) != null) {
-                        marker_number = clinics.get(i).findIndex(marker.getTitle());
+                for (int i = 0; i < Marker.size(); i++) {
+                    if (Marker.get(i).findIndex(marker.getTitle()) != null) {
+                        marker_number = Marker.get(i).findIndex(marker.getTitle());
                         Log.d(TAG, "marker_number " + marker_number);
                     }
                 } // marker title로 clinic을 검색하여 number 반환받아옴
                 final int marker_ID_number = Integer.parseInt(marker_number);
                 Log.d(TAG, "marker number = " + String.valueOf(marker_ID_number));
-                Log.d(TAG, "marker clinic name = " + clinics.get(marker_ID_number -1).getName());
-                String monday = clinics.get(marker_ID_number - 1).getMonday();
-                String tuesday  = clinics.get(marker_ID_number - 1).getTuesday();
-                String wednesday = clinics.get(marker_ID_number - 1).getWednesday();
-                String thursday = clinics.get(marker_ID_number - 1).getThursday();
-                String friday = clinics.get(marker_ID_number - 1).getFriday();
-                String saturday = clinics.get(marker_ID_number - 1).getSaturday();
-                String sunday = clinics.get(marker_ID_number - 1).getSunday();
-                String holiday = clinics.get(marker_ID_number - 1).getHoliday();
+                Log.d(TAG, "marker clinic name = " + Marker.get(marker_ID_number -1).getName());
+                String monday = Marker.get(marker_ID_number - 1).getMonday();
+                String tuesday  = Marker.get(marker_ID_number - 1).getTuesday();
+                String wednesday = Marker.get(marker_ID_number - 1).getWednesday();
+                String thursday = Marker.get(marker_ID_number - 1).getThursday();
+                String friday = Marker.get(marker_ID_number - 1).getFriday();
+                String saturday = Marker.get(marker_ID_number - 1).getSaturday();
+                String sunday = Marker.get(marker_ID_number - 1).getSunday();
+                String holiday = Marker.get(marker_ID_number - 1).getHoliday();
 
                 if(monday.equals("정보없음")){
                     monday = "휴무";
@@ -209,9 +278,9 @@ public class search_mediAct extends FragmentActivity
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("병원정보");
                 builder.setMessage(
-                        "이름 : " + clinics.get(marker_ID_number - 1).getName() +
-                                "\n주소 : " + clinics.get(marker_ID_number - 1).getAddress() +
-                                "\n전화번호 : " + clinics.get(marker_ID_number - 1).getPhoneNumber() +
+                        "이름 : " + Marker.get(marker_ID_number - 1).getName() +
+                                "\n주소 : " + Marker.get(marker_ID_number - 1).getAddress() +
+                                "\n전화번호 : " + Marker.get(marker_ID_number - 1).getPhoneNumber() +
                                 "\n※운영시간※ " +
                                 "\n월요일 : " + monday +
                                 "\n화요일 : " + tuesday +

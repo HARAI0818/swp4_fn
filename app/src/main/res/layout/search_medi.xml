@@ -19,14 +19,34 @@
             android:name="com.google.android.gms.maps.SupportMapFragment" />
 
         <EditText
-            android:id="@+id/editText21"
+            android:id="@+id/et_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
+            android:hint="약국 "
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintTop_toTopOf="@+id/map"
             tools:layout_editor_absoluteX="1000dp" />
+
+        <Button
+            android:id="@+id/btn_search1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+            android:text="검색" />
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="180dp"/>
 
     </FrameLayout>
 
