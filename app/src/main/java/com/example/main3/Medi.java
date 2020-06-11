@@ -113,6 +113,8 @@ public class Medi implements Serializable {
     String sunday;
     String holiday;
 
+
+
     public String findIndex(String name) {
         if(this.name.equals(name)) {
             return number;

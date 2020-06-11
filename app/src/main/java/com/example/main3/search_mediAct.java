@@ -25,10 +25,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.Cluster;
 import com.google.maps.android.clustering.ClusterManager;
+import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 
 
 import java.util.ArrayList;
@@ -121,7 +124,7 @@ public class search_mediAct extends FragmentActivity
                             Marker.get(i).getName());
                     clusterManager.addItem(clinicItem);
                     LatLng latLng = new LatLng(35.154101, 128.098149);
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12);
                     mgoogleMap.moveCamera(cameraUpdate);
                 }
             }
@@ -143,7 +146,20 @@ public class search_mediAct extends FragmentActivity
     }
 
 
+    public class MarkerClusterRenderer extends DefaultClusterRenderer<MyItem> {
 
+        public MarkerClusterRenderer(Context context, GoogleMap map,
+                                     ClusterManager<MyItem> clusterManager) {
+            super(context, map, clusterManager);
+        }
+
+        @Override
+        protected void onBeforeClusterItemRendered(MyItem item, MarkerOptions markerOptions) {
+
+            markerOptions.icon(BitmapDescriptorFactory.
+                    fromResource(R.drawable.mark_hos));
+        }
+    }
 
 
 
@@ -161,7 +177,7 @@ public class search_mediAct extends FragmentActivity
 
         mgoogleMap.setOnMyLocationButtonClickListener(this);
         mgoogleMap.setOnMyLocationClickListener(this);
-
+        clusterManager.setRenderer(new MarkerClusterRenderer(this, mgoogleMap, clusterManager));
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
@@ -181,7 +197,7 @@ public class search_mediAct extends FragmentActivity
             public void onMapLoaded() {
                 Log.d(TAG, "Load");
                 LatLng latLng = new LatLng(35.154101, 128.098149);
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12);
                 mgoogleMap.animateCamera(cameraUpdate);
 
                 for(int i = 0 ; i < clinics.size(); i++) {
@@ -196,7 +212,7 @@ public class search_mediAct extends FragmentActivity
             @Override
             public boolean onClusterClick(Cluster<MyItem> cluster) {
                 LatLng latLng = new LatLng(cluster.getPosition().latitude, cluster.getPosition().longitude);
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 16);
                 mgoogleMap.moveCamera(cameraUpdate);
                 return false;
             }
