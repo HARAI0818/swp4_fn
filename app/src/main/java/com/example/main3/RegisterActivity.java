@@ -41,7 +41,7 @@ import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText et_id, et_pass, et_location;
+    private EditText et_id, et_pass, et_location , et_name;
     Button btn_register , btn_idcheck, btn_birth;
     private GpsTracker gpsTracker;
     private boolean validate = false;
@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // 입력된 회원정보 정보 받기
+        et_name = (EditText) findViewById(R.id.et_name);
         et_id = (EditText) findViewById(R.id.et_id);
         et_pass = (EditText) findViewById(R.id.et_pass);
         et_location = (EditText) findViewById(R.id.et_location);
@@ -124,10 +125,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         //위치정보 값 설정부분
         if (!checkLocationServicesStatus()) {
-
             showDialogForLocationServiceSetting();
         }else {
-
             checkRunTimePermission();
         }
 
@@ -145,8 +144,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String address = getCurrentAddress(latitude, longitude);
                 et_location.setText(address);
-
-                Toast.makeText(RegisterActivity.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -164,6 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
+                String User_name = et_name.getText().toString();
                 String User_id = et_id.getText().toString();
                 String User_pass = et_pass.getText().toString();
                 String User_birth = btn_birth.getText().toString();
@@ -181,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(User_id.equals("")||User_pass.equals("")||User_birth.equals("")||User_sex.equals("")||User_location.equals("")){
+                if(User_id.equals("")||User_pass.equals("")||User_birth.equals("")||User_sex.equals("")||User_location.equals("")||User_name.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     dialog = builder.setMessage("비어있는 정보가 있습니다. \n전부 입력해주세요.")
                             .setNegativeButton("OK", null)
@@ -211,7 +209,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 // 서버로 Volley를 이용해서 요청을 함.
-                RegisterRequest registerRequest = new RegisterRequest(User_id,User_pass,User_birth,User_sex,User_location,responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(User_name,User_id,User_pass,User_birth,User_sex,User_location,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
 

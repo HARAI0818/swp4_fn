@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 //로그인 정보 보여주는 액티비티
 public class LoginInfActivity extends AppCompatActivity {
 
-    private TextView tv_id, tv_pass,tv_birth, tv_location, tv_sex, tv_sick ;
+    private TextView tv_id, tv_pass,tv_birth, tv_location, tv_sex, tv_name;
     private Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +26,22 @@ public class LoginInfActivity extends AppCompatActivity {
         tv_birth = (TextView) findViewById(R.id.tv_birth);
         tv_location = (TextView) findViewById(R.id.tv_location);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
-        tv_sick = (TextView) findViewById(R.id.tv_sick);
+        tv_name = (TextView)findViewById(R.id.tv_name);
 
         RbPreference pref = new RbPreference(mContext);
+        String User_name = pref.getValue("User_name","");
         String User_id = pref.getValue("User_id", "");
         String User_pass = pref.getValue("User_pass", "");
         String User_birth = pref.getValue("User_birth", "");
         String User_sex = pref.getValue("User_sex", "");
-        String User_sick = pref.getValue("User_sick", "");
         String User_location = pref.getValue("User_location", "");
 
 
         tv_id.setText(User_id);
         tv_pass.setText(User_pass);
         tv_birth.setText(User_birth);
-        tv_sick.setText(User_sick);
         tv_location.setText(User_location);
         tv_sex.setText(User_sex);
+        tv_name.setText(User_name);
     }
 }

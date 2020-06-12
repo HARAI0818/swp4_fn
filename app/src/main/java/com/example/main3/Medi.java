@@ -2,20 +2,40 @@ package com.example.main3;
 
 import java.io.Serializable;
 
-public class Clinic implements Serializable {
-    String number;      // 연변
-    String sample;      // 채취가능여부
-    String name;        // 병원명
-    String address;     // 주소
-    String phoneNumber; // 대표전화번호
-    String monday;
-    String tuesday;
-    String wednesday;
-    String thursday;
-    String friday;
-    String saturday;
-    String sunday;
-    String holiday;
+public class Medi implements Serializable {
+    String number;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getMonday() {
         return monday;
@@ -81,47 +101,19 @@ public class Clinic implements Serializable {
         this.holiday = holiday;
     }
 
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getSample() {
-        return sample;
-    }
-
-    public void setSample(String sample) {
-        this.sample = sample;
-    }
+    String name;
+    String address;
+    String phoneNumber;
+    String monday;
+    String tuesday;
+    String wednesday;
+    String thursday;
+    String friday;
+    String saturday;
+    String sunday;
+    String holiday;
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public String findIndex(String name) {
         if(this.name.equals(name)) {
@@ -129,4 +121,5 @@ public class Clinic implements Serializable {
         }
         else return null;
     }
+
 }

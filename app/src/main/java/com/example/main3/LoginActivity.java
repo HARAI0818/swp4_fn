@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     //뒤로 두번 누를시 앱 종료
     @Override
     public void onBackPressed() {
-        backPressHandler.onBackPressed("뒤로가기 버튼 한번 더 누르면 종료");
+        backPressHandler.onBackPressed("한번 더 누르면 종료됩니다.");
     }
 
     @Override
@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
                             if (success) { // 로그인에 성공한 경우
+                                String User_name = jsonObject.getString("User_name");
                                 String User_num = jsonObject.getString("User_num");
                                 String User_id = jsonObject.getString("User_id");
                                 String User_pass = jsonObject.getString("User_pass");
@@ -78,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String User_location= jsonObject.getString("User_location"); // 로그인한 유저 정보 받기
 
                                 RbPreference pref = new RbPreference(mContext);
+                                pref.put("User_name",User_name);
                                 pref.put("User_num", User_num);
                                 pref.put("User_id", User_id);
                                 pref.put("User_pass", User_pass);
