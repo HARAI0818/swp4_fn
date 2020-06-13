@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.Cluster;
 import com.google.maps.android.clustering.ClusterManager;
+import com.google.maps.android.clustering.algo.NonHierarchicalDistanceBasedAlgorithm;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 
 
@@ -55,7 +57,6 @@ public class search_mediAct extends FragmentActivity
     ArrayList<Location> Maker_address;
     Context context = this;
     final String TAG = "LogMainActivity";
-    int ch = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,8 @@ public class search_mediAct extends FragmentActivity
         setContentView(R.layout.search_medi);
 
         final EditText et_name = (EditText) findViewById(R.id.et_name);
-        Button btn_search = (Button)findViewById(R.id.btn_search1);
-        Button btn_del = (Button)findViewById(R.id.btn_reset);
+        ImageButton btn_search = (ImageButton)findViewById(R.id.btn_search1);
+        ImageButton btn_del = (ImageButton)findViewById(R.id.btn_reset);
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +75,10 @@ public class search_mediAct extends FragmentActivity
                     Toast.makeText(getApplicationContext(), "검색어를 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
                     boolean check = false;
-
+                    int check2 = 0;
                     LatLng latLng1 = null;
-                    for (int i = 0; i < 50; i++) {
+                    LatLng latLng2 = null;
+                    for (int i = 0; i < 100; i++) {
                         if (clinics.get(i).getName().contains(text)) {
                             if (check == false) {
                                 clusterManager.clearItems();
@@ -85,26 +87,31 @@ public class search_mediAct extends FragmentActivity
                             MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
                                     Marker.get(i).getName());
                             clusterManager.addItem(clinicItem);
+                            check2++;
 
                             if (check == false) {
-                                latLng1 = new LatLng(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude());
+                               latLng2 = new LatLng(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude());
                                 check = true;
                             }
                         }
                     }
 
                     if (check) {
-                        if(ch == 0) {
-                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, (float) 18.5);
-                            mgoogleMap.moveCamera(cameraUpdate);
-                            ch++;
+                        if(check2 == 1) {
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 15);
+                            mgoogleMap.animateCamera(cameraUpdate);
                         }
-                        else{
-                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng1, 18);
-                            mgoogleMap.moveCamera(cameraUpdate);
-                            ch--;
-                        }
+                        else {
+                            if (mgoogleMap.getCameraPosition().zoom == 11.5) {
+                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 11.9);
+                                mgoogleMap.animateCamera(cameraUpdate);
+                            } else {
+                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 11.5);
+                                mgoogleMap.animateCamera(cameraUpdate);
+                            }
 
+                        }
+                        Toast.makeText(getApplicationContext(),"총"+check2+"개의 결과가 있습니다.",Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "정보를 찾을 수 없습니다. \n 다시 검색해주세요.", Toast.LENGTH_SHORT).show();
                     }
@@ -123,9 +130,10 @@ public class search_mediAct extends FragmentActivity
                     MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
                             Marker.get(i).getName());
                     clusterManager.addItem(clinicItem);
-                    LatLng latLng = new LatLng(35.154101, 128.098149);
+                    LatLng latLng = new LatLng(35.201978, 128.112746);
                     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12);
-                    mgoogleMap.moveCamera(cameraUpdate);
+                    mgoogleMap.animateCamera(cameraUpdate);
+                    Toast.makeText(getApplicationContext(), "지도가 초기화되었습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -157,9 +165,22 @@ public class search_mediAct extends FragmentActivity
         protected void onBeforeClusterItemRendered(MyItem item, MarkerOptions markerOptions) {
 
             markerOptions.icon(BitmapDescriptorFactory.
-                    fromResource(R.drawable.mark_hos));
+                    fromResource(R.drawable.mark_medi));
         }
+
+        @Override
+        protected boolean shouldRenderAsCluster(Cluster<MyItem> cluster) {
+            return cluster.getSize() > 1;
+        }
+
+
+        /*@Override
+        protected void onBeforeClusterRendered(Cluster<MyItem> cluster, MarkerOptions markerOptions){
+
+
+        }*/
     }
+
 
 
 
@@ -177,8 +198,14 @@ public class search_mediAct extends FragmentActivity
 
         mgoogleMap.setOnMyLocationButtonClickListener(this);
         mgoogleMap.setOnMyLocationClickListener(this);
-        clusterManager.setRenderer(new MarkerClusterRenderer(this, mgoogleMap, clusterManager));
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
+
+        NonHierarchicalDistanceBasedAlgorithm<MyItem> algorithm = new NonHierarchicalDistanceBasedAlgorithm<>();
+        algorithm.setMaxDistanceBetweenClusteredItems(60);
+        clusterManager.setAlgorithm(algorithm);
+
+
+       clusterManager.setRenderer(new MarkerClusterRenderer(this, mgoogleMap, clusterManager));
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
@@ -196,11 +223,11 @@ public class search_mediAct extends FragmentActivity
             @Override
             public void onMapLoaded() {
                 Log.d(TAG, "Load");
-                LatLng latLng = new LatLng(35.154101, 128.098149);
+                LatLng latLng = new LatLng(35.201978, 128.112746);
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12);
                 mgoogleMap.animateCamera(cameraUpdate);
 
-                for(int i = 0 ; i < clinics.size(); i++) {
+                for (int i = 0; i < Marker.size(); i++) {
                     MyItem clinicItem = new MyItem(Maker_address.get(i).getLatitude(), Maker_address.get(i).getLongitude(),
                             Marker.get(i).getName());
                     clusterManager.addItem(clinicItem);
@@ -211,8 +238,9 @@ public class search_mediAct extends FragmentActivity
         clusterManager.setOnClusterClickListener(new ClusterManager.OnClusterClickListener<MyItem>() {
             @Override
             public boolean onClusterClick(Cluster<MyItem> cluster) {
-                LatLng latLng = new LatLng(cluster.getPosition().latitude, cluster.getPosition().longitude);
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 16);
+              LatLng latLng = new LatLng(cluster.getPosition().latitude, cluster.getPosition().longitude);
+                float a = mgoogleMap.getCameraPosition().zoom+1;
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, a);
                 mgoogleMap.moveCamera(cameraUpdate);
                 return false;
             }

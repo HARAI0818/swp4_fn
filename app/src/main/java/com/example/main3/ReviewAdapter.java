@@ -4,11 +4,11 @@ package com.example.main3;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.main3.Request.ReviewdeRequest;
 
 import org.json.JSONObject;
 
@@ -32,7 +33,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
 
 
     public static class ReviewViewHolder extends RecyclerView.ViewHolder {
-          TextView tv_reviewtitle;
           TextView tv_reviewuser;
           TextView tv_reviewtime ;
           TextView tv_reviewcontents ;
@@ -42,7 +42,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
 
         public ReviewViewHolder(View view) {
                 super(view);
-                tv_reviewtitle =(TextView)view.findViewById(R.id.tv_reviewtitle);
                 tv_reviewuser=(TextView)view.findViewById(R.id.tv_reviewuser);
                 tv_reviewtime =(TextView)view.findViewById(R.id.tv_reviewtime);
                 tv_reviewcontents =(TextView)view.findViewById(R.id.tv_reviewcontents);
@@ -78,11 +77,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     @Override
     public void onBindViewHolder(@NonNull final ReviewViewHolder viewholder, final int position) {
 
-        viewholder.tv_reviewtitle.setText("제목  : " +memberList.get(position).getReview_title());
-        viewholder.tv_reviewuser.setText("글작성자 : "+ memberList.get(position).getReview_user());
-        viewholder.tv_reviewtime.setText("작성시간: " + memberList.get(position).getReview_time());
+        viewholder.tv_reviewuser.setText(memberList.get(position).getReview_user()+"님");
+        viewholder.tv_reviewtime.setText(memberList.get(position).getReview_time());
         viewholder.tv_reviewscore.setRating(memberList.get(position).getReview_score());
-        viewholder.tv_reviewcontents.setText("내용 : " + memberList.get(position).getReview_contents());
+        viewholder.tv_reviewcontents.setText(memberList.get(position).getReview_contents());
+
+        viewholder.tv_reviewuser.setPaintFlags(viewholder.tv_reviewuser.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
 
         if (memberList.get(position).getReview_user().equals(Review_user)){
             viewholder.btn_delete.setVisibility(View.VISIBLE);
@@ -134,7 +134,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
                                     };//Response.Listener 완료
 
                                     //Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
-                                    ReviewdeRequest reviewderequest = new ReviewdeRequest(memberList.get(position).getReview_title(),Review_user,
+                                    ReviewdeRequest reviewderequest = new ReviewdeRequest(Review_user,
                                             memberList.get(position).getReview_time(), responseListener);
                                     RequestQueue queue = Volley.newRequestQueue(mContext);
                                     queue.add(reviewderequest);

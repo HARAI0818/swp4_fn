@@ -1,4 +1,4 @@
-package com.example.main3;
+package com.example.main3.Request;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -12,6 +12,7 @@ public class ReviewshRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
     final static private String URL = "http://211.110.104.63/reviewshw.php";
+
     private Map<String, String> map;
 
 

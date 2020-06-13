@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +16,14 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.main3.Request.SickdeRequest;
+import com.example.main3.Request.SickshRequest;
 
 import org.json.JSONObject;
 
 public class SickshActivity extends AppCompatActivity {
     private Context mContext=this;
-    private TextView tv_A1, tv_A2 ,tv_A3, tv_A4, tv_A5 , tv_A6 , tv_A7 , tv_A8 , tv_A9 , tv_A10, tv_A11;
+    private TextView tv_A1, tv_A2 ,tv_A3, tv_A4, tv_A5 , tv_A6 , tv_A7 , tv_A8 , tv_A9 , tv_A10, tv_A11,tv_name;
     private Button btn_delete ;
     private AlertDialog dialog;
 
@@ -44,6 +47,7 @@ public class SickshActivity extends AppCompatActivity {
         tv_A10 = (TextView) findViewById(R.id.tv_A10);
         tv_A11 = (TextView) findViewById(R.id.tv_A11);
         btn_delete = (Button) findViewById(R.id.btn_delete);
+        tv_name = (TextView) findViewById(R.id.name);
 
 
 
@@ -101,6 +105,7 @@ public class SickshActivity extends AppCompatActivity {
 
 
 
+
         Response.Listener<String> responseListener = new Response.Listener<String>(){
 
             @Override
@@ -120,17 +125,57 @@ public class SickshActivity extends AppCompatActivity {
                         String Sick_A9 = jsonResponse.getString("Sick_A9");
                         String Sick_A10 = jsonResponse.getString("Sick_A10");
                         String Sick_A11 = jsonResponse.getString("Sick_A11");
-                        tv_A1.setText(Sick_A1);
-                        tv_A2.setText(Sick_A2);
+
+                        if(!jsonResponse.getString("Sick_A1").equals("")) {
+                            tv_A1.setText(Sick_A1);
+                        }
+                        else{
+                            tv_A1.setText("해당없음");
+                        }
+
+                        if(!jsonResponse.getString("Sick_A2").equals("")) {
+                            tv_A2.setText(Sick_A2);
+                        }
+                        else{
+                            tv_A2.setText("해당없음");
+                        }
+
                         tv_A3.setText(Sick_A3);
                         tv_A4.setText(Sick_A4);
-                        tv_A5.setText(Sick_A41);
-                        tv_A6.setText(Sick_A42);
+                        if(!jsonResponse.getString("Sick_A4").equals("아니오")) {
+                            tv_A5.setText(Sick_A41);
+                            tv_A6.setText(Sick_A42);
+                        }
+                        else{
+                            tv_A6.setText("없음");
+                            tv_A5.setVisibility(View.GONE);;
+                        }
+
                         tv_A7.setText(Sick_A7);
                         tv_A8.setText(Sick_A8);
                         tv_A9.setText(Sick_A9);
                         tv_A10.setText(Sick_A10);
                         tv_A11.setText(Sick_A11);
+
+                        tv_A1.setPaintFlags(tv_A1.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A2.setPaintFlags(tv_A2.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A3.setPaintFlags(tv_A3.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A4.setPaintFlags(tv_A4.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A5.setPaintFlags(tv_A5.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A6.setPaintFlags(tv_A6.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A7.setPaintFlags(tv_A7.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A8.setPaintFlags(tv_A8.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A9.setPaintFlags(tv_A9.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A10.setPaintFlags(tv_A10.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+                        tv_A11.setPaintFlags(tv_A11.getPaintFlags() | Paint.FAKE_BOLD_TEXT_FLAG);
+
+                        RbPreference pref = new RbPreference(mContext);
+                        String User_name = pref.getValue("User_name","") + "님 건강문진표";
+
+                        tv_name.setText(User_name);
+
+
+
 
                     }else{//사용할 수 없는 아이디라면
                     }

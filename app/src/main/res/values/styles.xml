@@ -15,9 +15,22 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
 
+        <item name="colorControlNormal">#349DE3</item>
+
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#8C8C8C</item>
+        <item name="colorControlActivated"> #F4D555</item>
+        <item name="android:minHeight">50dip</item>
+        <item name="android:maxHeight">50dip</item>
+    </style>
+
+
 
 </resources>

@@ -12,41 +12,88 @@
         android:layout_height="match_parent" >
 
         <fragment
+            android:id="@+id/map1"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/map1"
-            tools:context=".MapsActivity"
-            android:name="com.google.android.gms.maps.SupportMapFragment" />
+            tools:context=".MapsActivity" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Linear_Red1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/ver_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/hor_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.91"/>
+
+            <ImageButton
+                android:id="@+id/btn_reset"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="12dp"
+                android:alpha="0.7"
+                android:background="@drawable/refreshbutton"
+                android:src="@drawable/refresh"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/et_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
         <EditText
             android:id="@+id/et_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:alpha="0.7"
+            android:background="@drawable/rounded"
             android:ems="10"
-            android:hint="약국 "
+            android:gravity="center"
+            android:hint="병원명을 입력하세요."
             android:inputType="textPersonName"
-            app:layout_constraintTop_toTopOf="@+id/map"
-            tools:layout_editor_absoluteX="1000dp" />
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/hor_guideline"
+            app:layout_constraintEnd_toStartOf="@+id/ver_guideline"
+            app:layout_constraintStart_toEndOf="@+id/btn_reset"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+
+        <ImageButton
             android:id="@+id/btn_search1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="15dp"
-            android:text="검색" />
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/roundbutton"
+            android:src="@drawable/search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ver_guideline"
+            app:layout_constraintStart_toEndOf="@+id/et_name"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btn_reset"
-            android:layout_width="44dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="180dp"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </FrameLayout>
 

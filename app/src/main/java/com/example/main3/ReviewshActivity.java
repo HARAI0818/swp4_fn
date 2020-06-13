@@ -1,12 +1,9 @@
 package com.example.main3;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,18 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.main3.Request.ReviewshRequest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class ReviewshActivity extends AppCompatActivity {
@@ -100,13 +92,14 @@ public class ReviewshActivity extends AppCompatActivity {
                 JSONObject jsonObject1 = (JSONObject) jArray.get(i);
                 member.setReview_score(jsonObject1.getString("Review_score"));
                 member.setReview_time(jsonObject1.getString("Review_time"));
-                member.setReview_title(jsonObject1.getString("Review_title"));
                 member.setReview_contents(jsonObject1.getString("Review_contents"));
                 member.setReview_user(jsonObject1.getString("Review_user"));
                 members.add(member);
             }
             RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_main_list);
             mLinearLayoutManager = new LinearLayoutManager(mContext);
+            mLinearLayoutManager.setReverseLayout(true);
+            mLinearLayoutManager.setStackFromEnd(true);
             mRecyclerView.setLayoutManager(mLinearLayoutManager);
             ReviewAdapter adapter = new ReviewAdapter(members , User_id , this);
             mRecyclerView.setAdapter(adapter);

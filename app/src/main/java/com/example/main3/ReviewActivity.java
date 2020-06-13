@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.main3.Request.ReviewRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +27,7 @@ import java.util.Date;
 public class ReviewActivity extends AppCompatActivity {
 
     private EditText et_title , et_contents ;
+    private TextView tv_hospital;
     private Button btn_review;
     private Context mContext ;
     private String Review_hos;
@@ -36,13 +39,17 @@ public class ReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
         mContext = this;
+        Intent intent = getIntent(); /*데이터 수신*/
+        final String Review_hos = intent.getExtras().getString("Review_hos");
 
 
 
         // 타이틀값
-        et_title = (EditText) findViewById(R.id.et_title);
         et_contents = (EditText) findViewById(R.id.et_contents);
         final RatingBar rb = (RatingBar)findViewById(R.id.et_score);
+        tv_hospital = (TextView)findViewById(R.id.tv_hospital);
+
+        tv_hospital.setText(Review_hos);
 
         // 작성 버튼 클릭 시 수행
         btn_review = (Button) findViewById(R.id.btn_review);
@@ -50,12 +57,10 @@ public class ReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // EditText에 현재 입력되어있는 값을 get(가져온다)해온다.
-                String Review_title = et_title.getText().toString();
                 String Review_contents = et_contents.getText().toString();
                 float rs = rb.getRating();
                 String Review_score = String.valueOf(rs);
-                Intent intent = getIntent(); /*데이터 수신*/
-                final String Review_hos = intent.getExtras().getString("Review_hos");
+
 
                 long now = System.currentTimeMillis();
                 Date mDate = new Date(now);
@@ -65,7 +70,7 @@ public class ReviewActivity extends AppCompatActivity {
                 String Review_user = pref.getValue("User_id", "");
                 String Review_time  = simpleDate.format(mDate);
 
-                if(Review_title.equals("")||Review_contents.equals("")){
+                if(Review_contents.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ReviewActivity.this);
                     dialog = builder.setMessage("비어있는 정보가 있습니다. \n전부 입력해주세요.")
                             .setNegativeButton("OK", null)
@@ -99,7 +104,7 @@ public class ReviewActivity extends AppCompatActivity {
                     }
                 };
                 // 서버로 Volley를 이용해서 요청을 함.
-                ReviewRequest reviewRequest = new ReviewRequest(Review_title , Review_contents ,Review_score,Review_time,Review_user,Review_hos,responseListener);
+                ReviewRequest reviewRequest = new ReviewRequest(Review_contents ,Review_score,Review_time,Review_user,Review_hos,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(ReviewActivity.this);
                 queue.add(reviewRequest);
 
