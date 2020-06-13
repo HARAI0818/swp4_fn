@@ -5,286 +5,443 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:id="@+id/Q6"
-        android:layout_width="323dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="6. 아래 문항을 읽고 최근 1주일간 활동 상태에 해당하는 내용에 표시해 주십시오. "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Q61"
-        android:layout_width="340dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q6L"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="6-1. 최근 1주일간, 평소보다 숨이 훨씬 더 차게 만드는 격렬한 활동을, 하루 20분 이상 시행한 날은 며칠이었습니까? (예: 달리기, 에어로빅, 빠른 속도로 자전거 타기, 등산 등)"
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q6" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <RadioGroup
-        android:id="@+id/Q61_rg1"
-        android:layout_width="343dp"
+        <TextView
+            android:id="@+id/Q6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="6. 아래 문항을 읽고 최근 1주일간 활동 상태에 해당하는 내용에 표시해 주십시오. "
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q61Q"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q61">
-
-
-        <RadioButton
-            android:id="@+id/Q61_A1"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="없음" />
-
-        <RadioButton
-            android:id="@+id/Q61_A2"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="1일" />
-
-        <RadioButton
-            android:id="@+id/Q61_A3"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2일" />
-
-        <RadioButton
-            android:id="@+id/Q61_A4"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3일" />
-    </RadioGroup>
-
-
-    <RadioGroup
-        android:id="@+id/Q61_rg2"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q61_rg1">
-
-        <RadioButton
-            android:id="@+id/Q61_A5"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="4일" />
-
-        <RadioButton
-            android:id="@+id/Q61_A6"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="5일" />
-
-        <RadioButton
-            android:id="@+id/Q61_A7"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6일" />
-
-        <RadioButton
-            android:id="@+id/Q61_A8"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7일" />
-
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/Q62"
-        android:layout_width="339dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="6-2. 최근 1주일간, 평소보다 숨이 조금 더 차게 만드는 중간정도 활동을, 하루 30분 이상 시행한 날은 며칠이었습니까? (예: 빠르게 걷기, 복식 테니스 치기, 보통 속도로 자전거 타기, 엎드려 걸레질하기 등)
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q6L">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q61L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/downstroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Q61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="6-1. 최근 1주일간, 평소보다 숨이 훨씬 더 차게 만드는 격렬한 활동을, 하루 20분 이상 시행한 날은 며칠이었습니까?\n(예: 달리기, 에어로빅, 빠른 속도로 자전거 타기, 등산 등)"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q61A"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Q61L">
+
+            <RadioGroup
+                android:id="@+id/Q61_rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/Q61_A1"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="없음" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A2"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="1일" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A3"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2일" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A4"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3일" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/Q61_rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Q61_rg1">
+
+                <RadioButton
+                    android:id="@+id/Q61_A5"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="4일" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A6"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="5일" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A7"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6일" />
+
+                <RadioButton
+                    android:id="@+id/Q61_A8"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7일" />
+
+            </RadioGroup>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q62Q"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q61Q">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q62L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/downstroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Q62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="6-2. 최근 1주일간, 평소보다 숨이 조금 더 차게 만드는 중간정도 활동을, 하루 30분 이상 시행한 날은 며칠이었습니까?
+                \n(예: 빠르게 걷기, 복식 테니스 치기, 보통 속도로 자전거 타기)
         \n※ 6-1 응답에 관련된 신체활동은 제외 "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q61_rg2" />
 
-    <RadioGroup
-        android:id="@+id/Q62_rg1"
-        android:layout_width="343dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q62A"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Q62L">
+
+            <RadioGroup
+                android:id="@+id/Q62_rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/Q62_A1"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="없음" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A2"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="1일" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A3"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2일" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A4"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3일" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/Q62_rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Q62_rg1">
+
+                <RadioButton
+                    android:id="@+id/Q62_A5"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="4일" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A6"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="5일" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A7"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6일" />
+
+                <RadioButton
+                    android:id="@+id/Q62_A8"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7일" />
+
+            </RadioGroup>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q63Q"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q62">
-
-
-        <RadioButton
-            android:id="@+id/Q62_A1"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="없음" />
-
-        <RadioButton
-            android:id="@+id/Q62_A2"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="1일" />
-
-        <RadioButton
-            android:id="@+id/Q62_A3"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2일" />
-
-        <RadioButton
-            android:id="@+id/Q62_A4"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3일" />
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/Q62_rg2"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q62_rg1">
-
-        <RadioButton
-            android:id="@+id/Q62_A5"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="4일" />
-
-        <RadioButton
-            android:id="@+id/Q62_A6"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="5일" />
-
-        <RadioButton
-            android:id="@+id/Q62_A7"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6일" />
-
-        <RadioButton
-            android:id="@+id/Q62_A8"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7일" />
-
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/Q63"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="6-3. 최근 1주일간, 한 번에 적어도 10분 이상씩 걸은 경우를 합하여, 하루 총 30분 이상 걸은 날은 며칠이었습니까? \n(예: 가벼운 운동, 출퇴근이나 여가 시간에 걷기 포함) \n※ 6-1, 6-2 응답에 관련된 신체활동은 제외 "
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q62_rg2" />
+        app:layout_constraintTop_toBottomOf="@+id/Q62Q">
 
-    <RadioGroup
-        android:id="@+id/Q63_rg1"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q63">
-
-
-        <RadioButton
-            android:id="@+id/Q63_A1"
-            android:layout_width="84.5dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q63L"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="없음" />
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/downstroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/Q63_A2"
-            android:layout_width="84.5dp"
+            <TextView
+                android:id="@+id/Q63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="6-3. 최근 1주일간, 한 번에 적어도 10분 이상씩 걸은 경우를 합하여, 하루 총 30분 이상 걸은 날은 며칠이었습니까? \n(예: 가벼운 운동, 출퇴근이나 여가 시간에 걷기 포함) \n※ 6-1, 6-2 응답에 관련된 신체활동은 제외 "
+
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q63A"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="1일" />
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Q63L">
 
-        <RadioButton
-            android:id="@+id/Q63_A3"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2일" />
+            <RadioGroup
+                android:id="@+id/Q63_rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/Q63_A4"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3일" />
-    </RadioGroup>
+                <RadioButton
+                    android:id="@+id/Q63_A1"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="없음" />
 
-    <RadioGroup
-        android:id="@+id/Q63_rg2"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q63_rg1">
+                <RadioButton
+                    android:id="@+id/Q63_A2"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="1일" />
 
-        <RadioButton
-            android:id="@+id/Q63_A5"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="4일" />
+                <RadioButton
+                    android:id="@+id/Q63_A3"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2일" />
 
-        <RadioButton
-            android:id="@+id/Q63_A6"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="5일" />
+                <RadioButton
+                    android:id="@+id/Q63_A4"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3일" />
+            </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/Q63_A7"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6일" />
+            <RadioGroup
+                android:id="@+id/Q63_rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Q63_rg1">
 
-        <RadioButton
-            android:id="@+id/Q63_A8"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7일" />
+                <RadioButton
+                    android:id="@+id/Q63_A5"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="4일" />
+
+                <RadioButton
+                    android:id="@+id/Q63_A6"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="5일" />
+
+                <RadioButton
+                    android:id="@+id/Q63_A7"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6일" />
+
+                <RadioButton
+                    android:id="@+id/Q63_A8"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7일" />
+
+            </RadioGroup>
 
 
-    </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <Button
         android:id="@+id/btn_end"
@@ -307,5 +464,23 @@
         android:text="뒤로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

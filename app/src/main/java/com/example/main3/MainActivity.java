@@ -5,8 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,16 +26,17 @@ import androidx.navigation.ui.NavigationUI;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.main3.Request.HospitalRequest;
+import com.example.main3.Request.MediRequest;
+import com.example.main3.Request.SickshRequest;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     TextView text;
@@ -352,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
                             clinic_address1.clear();
 
 
-                            for (int i = 0; i <jArray.length(); i++) {
+                            for (int i = 0; i <100; i++) {
                                 Medi medi = new Medi();
                                 JSONObject jsonObject1 = (JSONObject) jArray.get(i);
                                 medi.setNumber(jsonObject1.getString("Medi_num"));

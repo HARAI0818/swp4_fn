@@ -62,7 +62,9 @@ public class SickFrag1 extends Fragment {
                     result3 = rb.getText().toString();
                 }
 
-                if(result.equals("")||result2.equals("")||result3.equals("")){
+
+
+                if(result3.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     dialog = builder.setMessage("비어있는 정보가 있습니다. \n전부 입력해주세요.")
                             .setNegativeButton("OK", null)

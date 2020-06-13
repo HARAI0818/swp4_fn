@@ -5,135 +5,245 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <RadioGroup
-        android:id="@+id/Q5_rg1"
-        android:layout_width="343dp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q5L"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q51">
-
-
-        <RadioButton
-            android:id="@+id/Q51_A1"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="안 마심" />
-
-        <RadioButton
-            android:id="@+id/Q51_A2"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="1일" />
-
-        <RadioButton
-            android:id="@+id/Q51_A3"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2일" />
-
-        <RadioButton
-            android:id="@+id/Q51_A4"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3일" />
-    </RadioGroup>
-
-
-    <RadioGroup
-        android:id="@+id/Q5_rg2"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q5_rg1">
-
-        <RadioButton
-            android:id="@+id/Q51_A5"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="4일" />
-
-        <RadioButton
-            android:id="@+id/Q51_A6"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:text="5일" />
-
-        <RadioButton
-            android:id="@+id/Q51_A7"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="6일" />
-
-        <RadioButton
-            android:id="@+id/Q51_A8"
-            android:layout_width="84.5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="7일" />
-
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/Q5"
-        android:layout_width="323dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="5. 아래 문항을 읽고 자신의 현재 상태에 해당하는 내용에 표시해 주십시오. "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Q51"
-        android:layout_width="327dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:text="5-1. 1주일에 평균 며칠이나 술을 마십니까 "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q5" />
-
-    <TextView
-        android:id="@+id/Q52"
-        android:layout_width="323dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginRight="75dp"
-        android:text="5-2. 술을 마실 때 보통 하루에 얼마나 마십니까?"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/everystorke"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q5_rg2" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/Q52_A"
-        android:layout_width="104dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:gravity="end"
-        android:hint="잔"
-        android:inputType="textPersonName"
+        <TextView
+            android:id="@+id/Q5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="5. 아래 문항을 읽고 자신의 현재 상태에 해당하는 내용에 표시해 주십시오. "
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q51Q"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Q52" />
+        app:layout_constraintTop_toBottomOf="@+id/Q5L">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q51L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/downstroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Q41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="5-1. 1주일에 평균 며칠이나 술을 마십니까 "
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q52A"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Q51L">
+
+            <RadioGroup
+                android:id="@+id/Q5_rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/Q51_A1"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="안 마심" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A2"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="1일" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A3"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2일" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A4"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3일" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/Q5_rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Q5_rg1">
+
+                <RadioButton
+                    android:id="@+id/Q51_A5"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="4일" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A6"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:text="5일" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A7"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6일" />
+
+                <RadioButton
+                    android:id="@+id/Q51_A8"
+                    android:layout_width="84.5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="7일" />
+
+            </RadioGroup>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Q52Q"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/everystorke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q51Q">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Q52L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/downstroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Q52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="5-2. 술을 마실 때 보통 하루에 얼마나 마십니까?"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Q52L">
+
+            <EditText
+                android:id="@+id/Q52_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:ems="3"
+                android:gravity="end"
+                android:hint="잔"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <Button
         android:id="@+id/btn_next3"
@@ -156,5 +266,14 @@
         android:text="뒤로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
