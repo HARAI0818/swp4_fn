@@ -107,7 +107,7 @@ public class search_hAct extends FragmentActivity
                         }
                         else {
                             if (mgoogleMap.getCameraPosition().zoom == 11.5) {
-                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 11.9);
+                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 12);
                                 mgoogleMap.animateCamera(cameraUpdate);
                             } else {
                                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng2, (float) 11.5);
@@ -173,7 +173,7 @@ public class search_hAct extends FragmentActivity
         protected void onBeforeClusterItemRendered(MyItem item, MarkerOptions markerOptions) {
 
             markerOptions.icon(BitmapDescriptorFactory.
-                    fromResource(R.drawable.mark_hos));
+                    fromResource(R.drawable.marker2));
         }
 
         @Override

@@ -165,7 +165,7 @@ public class search_mediAct extends FragmentActivity
         protected void onBeforeClusterItemRendered(MyItem item, MarkerOptions markerOptions) {
 
             markerOptions.icon(BitmapDescriptorFactory.
-                    fromResource(R.drawable.mark_medi));
+                    fromResource(R.drawable.marker1));
         }
 
         @Override
