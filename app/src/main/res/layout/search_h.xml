@@ -6,90 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".search_hAct">
-
     <FrameLayout
         android:id="@+id/fram_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MapsActivity" />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/Linear_Red"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            >
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="병원 "
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toTopOf="@+id/map"
+            tools:layout_editor_absoluteX="1000dp" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/ver_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.8"/>
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+            android:text="검색" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/hor_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.91"/>
-
-            <ImageButton
-                android:id="@+id/button2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="5dp"
-                android:alpha="0.7"
-                android:background="@drawable/refreshbutton"
-                android:src="@drawable/refresh"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="12dp"
-                android:alpha="0.7"
-                android:background="@drawable/rounded"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="병원명을 입력하세요."
-                android:inputType="textPersonName"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/hor_guideline"
-                app:layout_constraintEnd_toStartOf="@+id/ver_guideline"
-                app:layout_constraintStart_toEndOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <ImageButton
-                android:id="@+id/btn_search"
-                android:layout_width="40dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/roundbutton"
-                android:src="@drawable/search"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/ver_guideline"
-                app:layout_constraintStart_toEndOf="@+id/editText2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="180dp"/>
 
     </FrameLayout>
 

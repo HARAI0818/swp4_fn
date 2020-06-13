@@ -1,4 +1,4 @@
-package com.example.main3.Request;
+package com.example.main3;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -11,7 +11,6 @@ public class SickRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
     final static private String URL = "http://211.110.104.63/Sick.php";
-
     private Map<String, String> map;
 
 
